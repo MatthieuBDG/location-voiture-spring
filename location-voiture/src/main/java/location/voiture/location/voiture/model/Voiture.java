@@ -11,17 +11,14 @@ public class Voiture {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "nom", length = 50)
-    private String nom;
+    @Column(name = "modele", length = 50)
+    private String modele;
 
-    @Column(name = "prenom", length = 50)
-    private String prenom;
+    @Column(name = "marque", length = 50)
+    private String marque;
 
-    @Column(name = "email", length = 250)
-    private String email;
-
-    @Column(name = "telephone", length = 50)
-    private String telephone;
+    @Column(name = "carburant", length = 50)
+    private String carburant;
 
     @OneToMany(mappedBy = "voiture")
     private List<Location> locations = new ArrayList<>();
@@ -34,36 +31,28 @@ public class Voiture {
         this.id = id;
     }
 
-    public String getNom() {
-        return nom;
+    public String getModele() {
+        return modele;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setModele(String modele) {
+        this.modele = modele;
     }
 
-    public String getPrenom() {
-        return prenom;
+    public String getMarque() {
+        return marque;
     }
 
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
+    public void setMarque(String marque) {
+        this.marque = marque;
     }
 
-    public String getEmail() {
-        return email;
+    public String getCarburant() {
+        return carburant;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getTelephone() {
-        return telephone;
-    }
-
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
+    public void setCarburant(String carburant) {
+        this.carburant = carburant;
     }
 
     public List<Location> getLocations() {
@@ -76,8 +65,7 @@ public class Voiture {
 
     @Override
     public String toString() {
-        return "Voiture [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email + ", telephone="
-                + telephone + ", locations=" + locations + "]";
+        return "Voiture [id=" + id + ", modele=" + modele + ", marque=" + marque + ", email=" + carburant +", locations=" + locations + "]";
     }
 
 }

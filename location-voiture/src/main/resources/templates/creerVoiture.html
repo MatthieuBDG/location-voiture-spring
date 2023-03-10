@@ -15,20 +15,16 @@
 
     <form action="#" th:action="@{/voiture/creer}" th:object="${voiture}" method="post">
         <div class="form-group">
-            <label for="nom">Nom :</label>
-            <input type="text" class="form-control" id="nom" th:field="*{nom}" />
+            <label for="modele">Modele :</label>
+            <input type="text" class="form-control" id="modele" th:field="*{modele}" required/>
         </div>
         <div class="form-group">
-            <label for="prenom">Prénom :</label>
-            <input type="text" class="form-control" id="prenom" th:field="*{prenom}" />
+            <label for="marque">Marque :</label>
+            <input type="text" class="form-control" id="marque" th:field="*{marque}" required/>
         </div>
         <div class="form-group">
-            <label for="email">Email :</label>
-            <input type="email" class="form-control" id="email" th:field="*{email}" />
-        </div>
-        <div class="form-group">
-            <label for="telephone">Téléphone :</label>
-            <input type="tel" class="form-control" id="telephone" th:field="*{telephone}" />
+            <label for="carburant">Carburant :</label>
+            <input type="text" class="form-control" id="carburant" th:field="*{carburant}"required />
         </div>
         <button type="submit" class="btn btn-primary mt-3">Valider</button>
     </form>

@@ -31,9 +31,9 @@
         </thead>
         <tbody>
         <tr data-th-each="voiture : ${voitures}">
-            <td data-th-text="${voiture.nom}"></td>
-            <td data-th-text="${voiture.prenom}"></td>
-            <td data-th-text="${voiture.email}"></td>
+            <td data-th-text="${voiture.modele}"></td>
+            <td data-th-text="${voiture.marque}"></td>
+            <td data-th-text="${voiture.carburant}"></td>
             <td data-th-text="${voiture.telephone}"></td>
             <td><a th:href="@{/voiture/modifier/{id}(id=${voiture.id})}" class="btn btn-primary">Modifier</a></td>
             <td><a th:href="@{/voiture/supprimer/{id}(id=${voiture.id})}" class="btn btn-danger">Supprimer</a></td>
