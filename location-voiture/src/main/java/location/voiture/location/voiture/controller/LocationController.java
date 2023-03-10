@@ -35,7 +35,7 @@ public class LocationController {
     @Autowired
     private ClientLocationRepository clientLocationRepository;
 
-    private static final Logger logger = LogManager.getLogger(ClientController.class);
+    private static final Logger logger = LogManager.getLogger(LocationController.class);
     @GetMapping("/location/liste") // liste de toutes les locations
     public ModelAndView listeLocations() {
         logger.info("Liste des locations appelée le " + new Date());
@@ -74,11 +74,12 @@ public class LocationController {
         logger.info("Modification d'une location appelée le " + new Date());
         Location location = locationRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid location Id:" + id));
+        Voiture voiture = location.getVoiture();
         model.addAttribute("location", location);
-
         ModelAndView modelAndView = new ModelAndView("modifierLocation");
         modelAndView.addObject("location", location);
-
+        modelAndView.addObject("voiture_actuelle", voiture);
+        modelAndView.addObject("voitures", voitureRepository.findAll());
         return modelAndView;
     }
 

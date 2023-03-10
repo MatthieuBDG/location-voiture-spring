@@ -47,6 +47,7 @@ public class ClientController {
         ModelAndView modelAndView = new ModelAndView("listeClient");
         modelAndView.addObject("clients", ClientService.getClients());
         modelAndView.addObject("message", "Le client a été créé avec succès.");
+        modelAndView.setViewName("redirect:/client/liste");
         return modelAndView;
     }
 

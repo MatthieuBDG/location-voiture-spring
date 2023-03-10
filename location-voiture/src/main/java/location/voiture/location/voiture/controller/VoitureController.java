@@ -32,7 +32,7 @@ public class VoitureController {
         Voiture o = new Voiture();
         return new ModelAndView("creerVoiture", "voiture", o);
     }
-    private static final Logger logger = LogManager.getLogger(ClientController.class);
+    private static final Logger logger = LogManager.getLogger(VoitureController.class);
     @PostMapping("/voiture/creer")
     public ModelAndView submit(@ModelAttribute("voiture") Voiture voiture, ModelMap model) {
         logger.info("Enregistrement d'une voiture appelée le " + new Date());

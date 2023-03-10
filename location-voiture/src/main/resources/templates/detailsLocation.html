@@ -9,7 +9,7 @@
 <body>
 <div class="container bg-light p-3 rounded">
     <h1 class="mt-5 mb-3">Détails sur la location</h1>
-    <a href="/location/liste">Retour</a>
+    <a href="/location/liste" class="btn btn-secondary">Retour</a>
 
     <div th:if="${param.message}" class="alert alert-success font-weight-bold">
         <h3 th:text="${param.message}"></h3>
@@ -69,7 +69,7 @@
 
 <h2>Client inscrits à la location</h2>
 
-<a th:href="@{/location/{locationId}/ajoutClient/(locationId=${locationId})}">Ajouter d'un client</a>
+<a th:href="@{/location/{locationId}/ajoutClient/(locationId=${locationId})}" class="btn btn-primary">Ajouter un client</a>
 
     <table class="table mt-5">
         <thead class="thead-dark">
@@ -78,7 +78,7 @@
         <th>Prénom</th>
         <th>Email</th>
         <th>Téléphone</th>
-        <th>Retirer</th>
+        <th>Supprimer</th>
     </tr>
         </thead>
         <tbody>
@@ -87,7 +87,7 @@
         <td th:text="${client.prenom}"></td>
         <td th:text="${client.email}"></td>
         <td th:text="${client.telephone}"></td>
-        <td><a th:href="@{/location/{id}/supprimerClient/{clientId}(id=${location.id}, clientId=${client.id})}">Retirer</a></td>
+        <td><a th:href="@{/location/{id}/supprimerClient/{clientId}(id=${location.id}, clientId=${client.id})}" class="btn btn-danger">Supprimer</a></td>
     </tr>
         </tbody>
 </table>

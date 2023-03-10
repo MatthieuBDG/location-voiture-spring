@@ -9,7 +9,7 @@
 <body>
 <div class="container bg-light p-3 rounded">
     <h1 class="mt-3">Ajouter un client à la location</h1>
-    <a th:href="@{/location/details/{id}(id=${location.id})}">Retour</a>
+    <a th:href="@{/location/details/{id}(id=${location.id})}" class="btn btn-secondary">Retour</a>
     <h2 class="mt-3">Clients disponibles</h2>
     <form method="post" th:action="@{/location/{id}/ajoutClient/(id=${location.id})}">
         <fieldset>

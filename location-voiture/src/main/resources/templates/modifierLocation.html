@@ -11,7 +11,7 @@
 <body>
 <div class="container bg-light p-3 rounded">
         <h1>Modification d'une location</h1>
-        <p><a href="/location/liste">Retour</a></p>
+        <p><a href="/location/liste" class="btn btn-secondary">Retour</a></p>
         
         <form th:object="${location}" th:action="@{${'/location/modifier/' + location.id}}" method="post">
             <input type="hidden" th:field="*{id}" />
@@ -38,7 +38,21 @@
                 <label for="lieu">Lieu:</label>
                 <input type="text" class="form-control" id="lieu" th:field="*{lieu}" required />
             </div>
+            <div class="form-group" required>
+                <label class="control-label col-sm-2" for="voiture">Voiture :</label>
+                <div class="col-sm-10">
+                    <select class="form-control" id="voiture" name="voiture.id" required>
+                        <option th:value="${voiture_actuelle.id}"
+                                th:text="${voiture_actuelle.marque+' '+voiture_actuelle.modele + ' ('+voiture_actuelle.carburant+')'}">
+                        </option>
+                        <option th:each="voiture : ${voitures} " th:unless="${voiture.id == voiture_actuelle.id}"
+                                th:value="${voiture.id}"
+                                th:text="${voiture.marque+' '+voiture.modele + ' ('+voiture.carburant+')'}">
 
+                        </option>
+                    </select>
+                </div>
+            </div>
             <button type="submit" class="btn btn-primary mt-3">Modifier</button>
         </form>
     </div>

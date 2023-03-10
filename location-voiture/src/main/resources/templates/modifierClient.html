@@ -11,7 +11,7 @@
 <body>
     <div class="container bg-light p-3 rounded">
         <h1>Modification d'un client</h1>
-        <p><a href="/client/liste">Retour</a></p>
+        <p><a href="/client/liste" class="btn btn-secondary">Retour</a></p>
 
         <form th:object="${client}" th:action="@{${'/client/modifier/' + client.id}}" method="post">
             <input type="hidden" th:field="*{id}" />
