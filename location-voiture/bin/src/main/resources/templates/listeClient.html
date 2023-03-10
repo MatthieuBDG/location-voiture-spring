@@ -1,0 +1,49 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content= "text/html; charset=UTF-8"/>
+    <title>Liste des Clients</title>
+    <link rel="stylesheet" href="../css/bootstrap.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../css/styles.css" crossorigin="anonymous" />
+
+</head>
+<body>
+<div class="container bg-light p-3 rounded">
+    <h1 class="mt-5">Liste des Clients</h1>
+    <p><a href="/">Retour à l'accueil</a></p>
+
+    <div th:if="${param.message}" class="alert alert-success font-weight-bold">
+        <h3 th:text="${param.message}"></h3>
+    </div>
+
+    <div th:if="${param.message_error}" class="alert alert-danger font-weight-bold">
+        <h3 th:text="${param.message_error}"></h3>
+    </div>
+
+    <table class="table mt-5">
+        <thead class="thead-dark">
+        <tr>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Telephone</th>
+            <th>Modifier</th>
+            <th>Supprimer</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="client : ${clients}">
+            <td th:text="${client.nom}"></td>
+            <td th:text="${client.prenom}"></td>
+            <td th:text="${client.age}"></td>
+            <td th:text="${client.email}"></td>
+            <td th:text="${client.telephone}"></td>
+            <td><a th:href="@{/client/modifier/{id}(id=${client.id})}" class="btn btn-primary">Modifier</a></td>
+            <td><a th:href="@{/client/supprimer/{id}(id=${client.id})}" class="btn btn-danger">Supprimer</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

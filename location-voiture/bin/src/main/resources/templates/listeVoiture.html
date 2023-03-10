@@ -1,0 +1,45 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content= "text/html; charset=UTF-8"/>
+<title>Liste des voitures</title>
+    <link rel="stylesheet" href="../css/bootstrap.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../css/styles.css" crossorigin="anonymous" />
+</head>
+<body>
+<div class="container bg-light p-3 rounded">
+    <h1> Liste des voitures</h1>
+    <p><a href="/">Retour à l'accueil</a></p>
+
+    <div th:if="${param.message}" class="alert alert-success font-weight-bold">
+        <h3 th:text="${param.message}"></h3>
+    </div>
+
+    <div th:if="${param.message_error}" class="alert alert-danger font-weight-bold">
+        <h3 th:text="${param.message_error}"></h3>
+    </div>
+
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th>nom</th>
+            <th>prenom</th>
+            <th>email</th>
+            <th>telephone</th>
+            <th>Modifier</th>
+            <th>Supprimer</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-th-each="voiture : ${voitures}">
+            <td data-th-text="${voiture.nom}"></td>
+            <td data-th-text="${voiture.prenom}"></td>
+            <td data-th-text="${voiture.email}"></td>
+            <td data-th-text="${voiture.telephone}"></td>
+            <td><a th:href="@{/voiture/modifier/{id}(id=${voiture.id})}" class="btn btn-primary">Modifier</a></td>
+            <td><a th:href="@{/voiture/supprimer/{id}(id=${voiture.id})}" class="btn btn-danger">Supprimer</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

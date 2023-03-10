@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Modification d'une location</title>
+    <link rel="stylesheet" href="../../css/bootstrap.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../../css/styles.css" crossorigin="anonymous" />
+</head>
+
+<body>
+<div class="container bg-light p-3 rounded">
+        <h1>Modification d'une location</h1>
+        <p><a href="/location/liste">Retour</a></p>
+        
+        <form th:object="${location}" th:action="@{${'/location/modifier/' + location.id}}" method="post">
+            <input type="hidden" th:field="*{id}" />
+
+            <div class="form-group">
+                <label for="dateDebut">Date debut:</label>
+                <input type="date" class="form-control" id="datedebut" th:field="*{dateDebut}" required />
+            </div>
+            <div class="form-group">
+                <label for="dateFin">Date fin:</label>
+                <input type="date" class="form-control" id="datefin" th:field="*{dateFin}" required />
+            </div>
+            <div class="form-group">
+                <label for="heureDebut">Heure de début:</label>
+                <input type="time" class="form-control" id="heureDebut" th:field="*{heureDebut}" required />
+            </div>
+
+            <div class="form-group">
+                <label for="heureFin">Heure de fin:</label>
+                <input type="time" class="form-control" id="heureFin" th:field="*{heureFin}" required />
+            </div>
+
+            <div class="form-group">
+                <label for="lieu">Lieu:</label>
+                <input type="text" class="form-control" id="lieu" th:field="*{lieu}" required />
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-3">Modifier</button>
+        </form>
+    </div>
+</body>
+
+</html>

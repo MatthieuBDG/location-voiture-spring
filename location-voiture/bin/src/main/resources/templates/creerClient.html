@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Création d'un Client</title>
+    <link rel="stylesheet" href="../css/bootstrap.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../css/styles.css" crossorigin="anonymous" />
+</head>
+
+<body>
+<div class="container bg-light p-3 rounded">
+        <h1>Création d'un Client</h1>
+        <p><a href="/">Retour à l'accueil</a></p>
+
+    <form action="#" th:action="@{/client/creer}" th:object="${client}" method="post">
+        <div class="form-group">
+            <label for="nom">Nom:</label>
+            <input type="text" class="form-control" th:field="*{nom}" id="nom" />
+        </div>
+        <div class="form-group">
+            <label for="prenom">Prénom:</label>
+            <input type="text" class="form-control" th:field="*{prenom}" id="prenom" />
+        </div>
+        <div class="form-group">
+            <label for="age">Âge:</label>
+            <input type="text" class="form-control" th:field="*{age}" id="age" />
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" class="form-control" th:field="*{email}" id="email" />
+        </div>
+        <div class="form-group">
+            <label for="telephone">Téléphone:</label>
+            <input type="text" class="form-control" th:field="*{telephone}" id="telephone" />
+        </div>
+        <button type="submit" class="btn btn-primary mt-5">Valider</button>
+    </form>
+    </div>
+</body>
+
+</html>
